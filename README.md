@@ -1,7 +1,15 @@
 # To search for and record signals
 
-run `ble_detection.py`
+run `python3 ble_detection.py`
+
+# Basic magnitude/frequency plot
+
+run `python3 load_and_plot.py`
+
+# Bit extracting
+
+run `python3 extract_bits.py`
 
 # To analyze frequency offset
 
-run `part_a_b_c.py`
+run `python3 part_a_b_c.py`
