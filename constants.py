@@ -1,4 +1,4 @@
-SAMPLE_RATE = 4e6
+SAMPLE_RATE = 8e6
 RX_BUFFER_SIZE = 262144
 RX_RF_BANDWIDTH = 2e6# No more then half sample rate because nyquist
 RX_LO = 2.426e9

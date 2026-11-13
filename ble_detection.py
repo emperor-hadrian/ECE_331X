@@ -1,7 +1,6 @@
 # By Hadrian Ward
 # Meant to find a BLE signal and save a recording which can be used for later tests
 # A burst lasts about 300us (https://rfessentials.com/resources/rf-glossary/ble-advertising/)
-# A recording of 262144 samples or 26.2144ms should be enough to spot BLE signals
 
 import adi
 import numpy as np
@@ -12,7 +11,7 @@ from constants import *
 import load_and_plot
 
 SIGNAL_AVG_ABOVE_NOISE_DB = 30# How much above noise floor to be considered the start of a signal
-SAVE_SAMPLE_MARGIN_BEFORE_AFTER = 500# Include noise before and after signal
+SAVE_SAMPLE_MARGIN_BEFORE_AFTER = 200# Include noise before and after signal
 
 def db(x):
     return 10*log(abs(x),10)

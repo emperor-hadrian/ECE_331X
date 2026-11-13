@@ -24,6 +24,7 @@ def plot_mag_db(data):
 	plt.grid()
 	plt.show()
 
+# Uses phase difference between each sample
 def instantaneous_frequency(data, sample_rate):
 	output = [0]
 	for i in range(1,len(data)):
