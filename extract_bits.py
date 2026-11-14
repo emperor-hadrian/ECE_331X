@@ -5,6 +5,7 @@ from math import *
 import load_and_plot
 import numpy as np
 import matplotlib.pyplot as plt
+import misc_analysis
 
 # Detects 1 or 0 based on if frequency is >0 or <0
 # Returns: (Avg abs avg per bin, List(bool for each bit))
@@ -51,13 +52,13 @@ def extract_binary(inst_freq, sample_rate):
 	bits = data_and_score_with_bin_offset(inst_freq, optimal_bin_offset, samples_per_symbol, n_bins)[1]
 	return (bits, optimal_bin_offset, samples_per_symbol)
 
-def plot_freq_with_bits(inst_freq, bits, bin_offset, samples_per_symbol):
+def plot_freq_with_bits(inst_freq, bits, bin_offset, samples_per_symbol, title="Received Signal Frequency With Decoded Bits"):
 	time_array = np.arange(len(inst_freq)) * 1e6 / SAMPLE_RATE
 	plt.figure(figsize=(10, 4))
 	plt.plot(time_array, inst_freq)
 	plt.xlabel("Time (us)")
 	plt.ylabel("Inst. Freq. (Hz)")
-	plt.title("Received Signal Frequency With Decoded Bits")
+	plt.title(title)
 	# Background colors for bits, https://stackoverflow.com/questions/9957637
 	bit_time = 1# Scale is in us
 	for (bin_i, bit) in enumerate(bits):
@@ -69,7 +70,7 @@ def plot_freq_with_bits(inst_freq, bits, bin_offset, samples_per_symbol):
 
 def main():
 	data = load_and_plot.load_iq(FILE_NAME)
-	freq = load_and_plot.instantaneous_frequency(data, SAMPLE_RATE)
+	freq = misc_analysis.instantaneous_frequency(data, SAMPLE_RATE)
 	(bits, bin_offset, samples_per_symbol) = extract_binary(freq, SAMPLE_RATE)
 	plot_freq_with_bits(freq, bits, bin_offset, samples_per_symbol)
 
