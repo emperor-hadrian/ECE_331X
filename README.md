@@ -2,6 +2,10 @@
 
 run `python3 ble_detection.py`
 
+# To run all tests, using recorded signal, no radio needed
+
+run `python3 main_pipeline.py`
+
 # Basic magnitude/frequency plot
 
 run `python3 load_and_plot.py`
